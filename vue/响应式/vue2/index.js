@@ -15,7 +15,7 @@ class Dep {
     }
 }
 
-// 依赖，暴露更新方法 notify
+// Watcher实际上是连接Vue组件与Dep的桥梁
 class Watcher {
     constructor(vm, key, cb) {
         this.vm = vm
@@ -23,7 +23,6 @@ class Watcher {
         this.cb = cb
         Dep.target = this
         this.oldVal = vm[key]
-        Dep.target = null
     }
     update(oldValue) {
         this.oldVal = oldValue
@@ -147,7 +146,7 @@ class Observer {
                 const oldval = obj[key]
                 if (newValue === obj[key]) return;
                 value = newValue;
-                // 如果新值是
+                // 如果新值是对象
                 self.walk(newValue)
                 // 更新视图
                 dep.notify(oldval)
