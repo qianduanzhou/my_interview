@@ -56,6 +56,7 @@ mountComponent(vm: Component, el: ?Element, ...) {
     ...
 
     updateComponent = () => {
+      //render生成虚拟dom，update生成渲染真实dom
       vm._update(vm._render(), ...)
     }
 
