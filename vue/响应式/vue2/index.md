@@ -43,7 +43,7 @@ function defineReactive(obj: Object, key: string, ...) {
 }
 ```
 
-其中这里的Dep就是一个观察者类，每一个data的属性都会有一个dep对象。当getter调用的时候，去dep里注册函数，
+其中这里的Dep就是一个调度中心（发布者），每一个data的属性都会有一个dep对象。当getter调用的时候，去dep里注册函数，
 
 setter的时候，就是去通知执行刚刚注册的函数。
 
@@ -64,6 +64,7 @@ mountComponent(vm: Component, el: ?Element, ...) {
     ...
 }
 
+
 class Watcher {
   getter: Function;
 
@@ -78,7 +79,7 @@ class Watcher {
 }
 ```
 
-mount 阶段的时候，会创建一个Watcher类的对象。这个Watcher实际上是连接Vue组件与Dep的桥梁。
+mount 阶段的时候，会创建一个Watcher类的对象。这个Watcher实际上是连接Vue组件与Dep的桥梁（观察者、订阅者）。
 每一个Watcher对应一个vue component。
 
 这里可以看出new Watcher的时候，constructor 里的this.getter.call(vm, vm)函数会被执行。getter就是updateComponent。这个函数会调用组件的render函数来更新重新渲染。
