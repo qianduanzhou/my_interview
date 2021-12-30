@@ -21,3 +21,4 @@ if (foo) {
     } 
 }
 // console.log( bar ); // ReferenceError
+   
