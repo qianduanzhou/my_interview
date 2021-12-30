@@ -19,8 +19,8 @@ class EventEmitter {
     }
     // 只执行一次订阅事件
     once(type, callBack) {
-        function fn() {
-            callBack();
+        function fn(...rest) {
+            callBack.apply(this, rest);
             this.off(type, fn);
         }
         this.on(type, fn);
@@ -28,7 +28,7 @@ class EventEmitter {
     // 触发事件
     emit(type, ...rest) {
         this.events[type] &&
-            this.events[type].forEach((fn) => fn.apply(this, rest));
+            this.events[type].forEach(fn => fn.apply(this, rest));
     }
 }
 // 使用如下
@@ -46,8 +46,8 @@ event.off("click", handle);
 
 event.emit("click", 1, 2);
 
-event.once("dbClick", () => {
-    console.log(123456);
+event.once("dbClick", (x) => {
+    console.log(x);
 });
-event.emit("dbClick");
+event.emit("dbClick", 55);
 event.emit("dbClick");
