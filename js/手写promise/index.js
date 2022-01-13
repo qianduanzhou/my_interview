@@ -380,11 +380,12 @@ myPromise.deferred = function () {
 }
 
 console.log(1)
+let resolveO = null;
 setTimeout(() => {
     console.log(7)
 }, 100);
 let p = new myPromise((resolve, reject) => {
-    resolve(4)
+    resolveO = resolve;
     console.log(2)
 })
 
@@ -398,3 +399,7 @@ p.then(res => {
     console.log(err)
 })
 console.log(3)
+
+setTimeout(() => {
+    resolveO(4);
+}, 50);
