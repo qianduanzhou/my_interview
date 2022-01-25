@@ -20,6 +20,23 @@
             background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMDAlJyBoZWlnaHQ9JzFweCc+PGxpbmUgeDE9JzAnIHkxPScwJyB4Mj0nMTAwJScgeTI9JzAnIHN0cm9rZT0nIzAwMCc+PC9saW5lPjwvc3ZnPg==");
         }
         .border3 {
+            position: relative;
+
+        }
+        .border3::after {
+            content: '';
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+            background-color: black;
+            height: 1px;
+            left: 0;
+            right: 0;
+            top: 0;
+            transform: scaleY(0.5);
+            transform-origin: 50% 0%;
+        }
+        .border4 {
             height: 1px;
             width: 500px;
             background: black;
@@ -30,5 +47,6 @@
     <div class="border1"></div><br/>
     <div class="border2"></div><br/>
     <div class="border3"></div><br/>
+    <div class="border4"></div><br/>
 </body>
 </html>
