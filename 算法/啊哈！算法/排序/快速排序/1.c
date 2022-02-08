@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-int a[10] = {5, 10, 22, 2, 5, 6, 88, 77, 55, 3}, n;
-n = sizeof(a) / sizeof(a[0]);
+int a[10] = {5, 10, 22, 2, 5, 6, 88, 77, 55, 3};
+int n = sizeof(a) / sizeof(a[0]);
 void quicksort(int left, int right)
 {
     int i, j, t, temp;
@@ -16,12 +16,13 @@ void quicksort(int left, int right)
             j--;
         while (a[i] <= temp && i < j)
             i++;
-        if (i < j) //将右边大于基准的数和左边小于基准的数进行替换
+        if (i < j) //将右边小于基准的数和左边大于基准的数进行替换
         {
             t = a[i];
             a[i] = a[j];
             a[j] = t;
         }
+
     }
     //将基准归位
     a[left] = a[i];
