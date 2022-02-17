@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            width: 1000px;
+            height: 1000px;
+            border: 1px solid #ccc;
+            /* 方法二 */
+            /* display: table-cell;
+            vertical-align: middle;
+            text-align: center; */
+            /* 方法三 */
+            /* display: flex;
+            align-items: center;
+            justify-content: center; */
+            /* 方法四 */
+            display: grid;
+        }
+
+        .test1,.test2,.test3,.test4 {
+            width: 200px;
+            height: 200px;
+        }
+
+        .test1 {
+            background: blue;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .test2 {
+            background: red;
+            display: inline-block;
+        }
+
+        .test3 {
+            background: yellow;
+        }
+
+        .test4 {
+            background: orange;
+            align-self: center;
+            justify-self: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div class="wrap">
+        <div class="test1"></div>
+    </div> -->
+
+    <!-- <div class="wrap">
+        <div class="test2"></div>
+    </div>-->
+
+    <!-- <div class="wrap">
+        <div class="test3"></div>
+    </div> -->
+
+    <div class="wrap">
+        <div class="test4"></div>
+    </div>
+</body>
+</html>
