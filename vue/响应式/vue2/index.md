@@ -141,7 +141,6 @@ notify () {
 
 ![](./v2-abc8633ff694fe9aef01c0673dcac976_720w.jpg)
 
-**1、第一步：**组件初始化的时候，先给每一个Data属性都注册getter，setter，也就是reactive化。然后再new 一个自己的Watcher对象，此时watcher会立即调用组件的render函数去生成虚拟DOM。在调用render的时候，就会需要用到data的属性值，此时会触发getter函数，将当前的Watcher函数注册进sub里。
+**1、第一步：**组件初始化的时候（**new Vue时执行的this._init(options)**），先给每一个Data属性都注册getter，setter（**observe方法执行的defineReactive**），也就是reactive化。在$mount（**执行mountComponent方法**）之后然后再new 一个自己的Watcher对象（**new Watcher**），此时watcher会立即调用组件的render函数去生成虚拟DOM（**updateComponent方法里面的vm.\_update(vm.\_render(), hydrating)**）。在调用render的时候，就会需要用到data的属性值，此时会触发getter函数，将当前的Watcher函数注册进sub里（**Watcher的addDep方法中的dep.addSub(this)**）。
 
-**2、第二步：**当data属性发生改变之后，就会遍历sub里所有的watcher对象，通知它们去重新渲染组件。
-
+**2、第二步：**当data属性发生改变之后，就会遍历sub里所有的watcher对象（**Dep的notify方法**），通知它们去重新渲染组件（**Watcher的update方法最终执行updateComponent方法**），_update中有patch方法，这个方法是比对虚拟dom，也就是diff。
