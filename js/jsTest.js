@@ -57,40 +57,40 @@
 //     return num1 + num2
 // }
 
-let obj = {
-    a: 1,
-    o: {
-        b: {
-            c: 1
-        }
-    }
-}
-function defineReactive(obj) {
-    if(typeof obj === 'object') {
-        for(let key in obj) {
-            let value = obj[key]
-            defineReactive(value)
-            Object.defineProperty(obj, key, {
-                set(newVal) {
-                    if (newVal === value) return;
-                    console.log('set', key)
-                    typeof val === 'object' && defineReactive(newVal)
-                    return newVal
-                },
-                get() {
-                    console.log('get', key)
-                    return value
-                }
-            })
-        }
-    }
-}
+// let obj = {
+//     a: 1,
+//     o: {
+//         b: {
+//             c: 1
+//         }
+//     }
+// }
+// function defineReactive(obj) {
+//     if(typeof obj === 'object') {
+//         for(let key in obj) {
+//             let value = obj[key]
+//             defineReactive(value)
+//             Object.defineProperty(obj, key, {
+//                 set(newVal) {
+//                     if (newVal === value) return;
+//                     console.log('set', key)
+//                     typeof val === 'object' && defineReactive(newVal)
+//                     return newVal
+//                 },
+//                 get() {
+//                     console.log('get', key)
+//                     return value
+//                 }
+//             })
+//         }
+//     }
+// }
 
-defineReactive(obj)
-console.log(JSON.stringify(obj.o))
-obj.o.b.c = 5
-obj.d = 5
-console.log(obj.d)
+// defineReactive(obj)
+// console.log(JSON.stringify(obj.o))
+// obj.o.b.c = 5
+// obj.d = 5
+// console.log(obj.d)
 
 // function reactive(obj) {
 //     let p = new Proxy(obj, {
@@ -114,3 +114,14 @@ console.log(obj.d)
 // p.o.a = 5
 // p.d = 5
 // console.log(p.d)
+// var a = 5;
+function test(a) {
+    console.log(a)
+    var a = 1;
+    // function a() {
+
+    // }
+    console.log(a)
+}
+test(5)
+console.log(a)
