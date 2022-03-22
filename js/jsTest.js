@@ -114,14 +114,5 @@
 // p.o.a = 5
 // p.d = 5
 // console.log(p.d)
-// var a = 5;
-function test(a) {
-    console.log(a)
-    var a = 1;
-    // function a() {
 
-    // }
-    console.log(a)
-}
-test(5)
-console.log(a)
+
