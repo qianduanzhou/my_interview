@@ -7,19 +7,34 @@
     <title>Document</title>
     <style>
         .f {
-            width: 100%;
-            display: flex;
+            /* position: absolute; */
+            width: 500px;
+            height: 500px;
+            border: 1px solid #ccc;
+            overflow: visible;
         }
         .c {
-            flex: 1;
-            text-align: center;
+            /* position: relative; */
+            overflow: auto;
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+        }
+        .d {
+            position: absolute;
+            width: 1000px;
+            height: 100px;
+            border: 1px solid #ccc;
         }
     </style>
 </head>
 <body>
     <div class="f">
-        <div class="c">1</div>
-        <div class="c">1</div>
+        <div class="c">
+            <div class="d">
+
+            </div>
+        </div>
     </div>
 </body>
 </html>
