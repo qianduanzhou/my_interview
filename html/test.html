@@ -1,40 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .f {
-            /* position: absolute; */
-            width: 500px;
-            height: 500px;
-            border: 1px solid #ccc;
-            overflow: visible;
-        }
-        .c {
-            /* position: relative; */
-            overflow: auto;
-            width: 300px;
-            height: 300px;
-            border: 1px solid #ccc;
-        }
-        .d {
-            position: absolute;
-            width: 1000px;
-            height: 100px;
-            border: 1px solid #ccc;
-        }
-    </style>
-</head>
-<body>
-    <div class="f">
-        <div class="c">
-            <div class="d">
+<html>
+	<head>
+		<!-- <meta charset="gb2312" /> -->
+		<style>
+			.a {
+				position: absolute;
+				top: 50px;
+				left: 50px;
+				width: 500px;
+				height: 500px;
+				border: 1px solid red;
+				overflow: visible;
+				
+			}
+			.b {
+				position: absolute;
+				width: 300px;
+				height: 300px;
+				border: 1px solid #ccc;
+				overflow-y: auto;
+				overflow-x: hidden;
 
-            </div>
-        </div>
-    </div>
-</body>
+			}
+			.c {
+				width: 200px;
+				height: 200px;
+				border: 1px solid #ccc;
+				overflow: visible;
+
+			}
+			.d {
+				position: relative;
+				width: 100px;
+				height: 100px;
+				border: 1px solid #ccc;
+			}
+			.e {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 50px;
+				height: 50px;
+				border: 1px solid blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="a">
+			<div class="b">
+				<div class="c">
+					<div class="d">
+						<div class="e">
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</body>
 </html>

@@ -24,7 +24,7 @@ void quicksort(int left, int right)
         }
 
     }
-    //将基准归位
+    //将基准归位(最终第一个就是极值)
     a[left] = a[i];
     a[i] = temp;
     //两边基准继续进行排序
