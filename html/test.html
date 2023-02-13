@@ -1,61 +1,27 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<!-- <meta charset="gb2312" /> -->
-		<style>
-			.a {
-				position: absolute;
-				top: 50px;
-				left: 50px;
-				width: 500px;
-				height: 500px;
-				border: 1px solid red;
-				overflow: visible;
-				
-			}
-			.b {
-				position: absolute;
-				width: 300px;
-				height: 300px;
-				border: 1px solid #ccc;
-				overflow-y: auto;
-				overflow-x: hidden;
 
-			}
-			.c {
-				width: 200px;
-				height: 200px;
-				border: 1px solid #ccc;
-				overflow: visible;
+<head>
+</head>
 
-			}
-			.d {
-				position: relative;
-				width: 100px;
-				height: 100px;
-				border: 1px solid #ccc;
-			}
-			.e {
-				position: fixed;
-				top: 0;
-				left: 0;
-				width: 50px;
-				height: 50px;
-				border: 1px solid blue;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="a">
-			<div class="b">
-				<div class="c">
-					<div class="d">
-						<div class="e">
+<body>
+	<script>
+function Father(a, b) {
+  this.a = a;
+  this.b = b;
+}
+function Child(a, b, c, d) {
+  Father.call(this, a, b);
+  this.c = c;
+  this.d = d;
+}
+let func = function() {};
+func.prototype = Father.prototype;
+Child.prototype = new func();
+Child.prototype.constructor = Child;
+let child = new Child(1, 2, 3, 4)
+console.log(child)
+	</script>
+</body>
 
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>	
-	</body>
 </html>
