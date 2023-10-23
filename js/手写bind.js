@@ -5,7 +5,6 @@ Function.prototype.myBind = function (context, ...args) {
     }
     // 创造唯一的key值  作为我们构造的context内部方法名
     let fn = Symbol();
-    context[fn] = this;
     let _this = this;
     //  bind情况要复杂一点
     const result = function (...innerArgs) {
@@ -13,14 +12,15 @@ Function.prototype.myBind = function (context, ...args) {
         // 此时由于new操作符作用  this指向result实例对象  而result又继承自传入的_this 根据原型链知识可得出以下结论
         // this.__proto__ === result.prototype   //this instanceof result =>true
         // this.__proto__.__proto__ === result.prototype.__proto__ === _this.prototype; //this instanceof _this =>true
-        if (this instanceof _this === true) {
+        if (this instanceof _this) {
             // 此时this指向指向result的实例  这时候不需要改变this指向
             this[fn] = _this;
-            this[fn](...[...args, ...innerArgs]); //这里使用es6的方法让bind支持参数合并
+            this[fn](...args, ...innerArgs); //这里使用es6的方法让bind支持参数合并
             delete this[fn];
         } else {
             // 如果只是作为普通函数调用  那就很简单了 直接改变this指向为传入的context
-            context[fn](...[...args, ...innerArgs]);
+            context[fn] = _this;
+            context[fn](...args, ...innerArgs);
             delete context[fn];
         }
     };
