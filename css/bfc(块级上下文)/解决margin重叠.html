@@ -24,16 +24,14 @@
         }
         .b {
             background: blue;
-            float: left;
         }
 
         .father2 {
-
             background: black;
             overflow: hidden;
         }
         .c {
-            margin: 50px;
+            margin-top: 50px;/*如果父元素的padding为0，子元素margin-top和bottom会转移给父元素*/
             width: 100px;
             height: 100px;
             background: yellow;
@@ -43,11 +41,10 @@
 <body>
     <div class="father">
         <div class="a"></div>
-        <div class="b"></div>
         <!-- 方法二 -->
-        <!-- <div style="overflow: hidden;">
+        <div style="overflow: hidden;">
             <div class="b"></div>
-        </div> -->
+        </div>
     </div>
     <div class="father2">
         <div class="c"></div>
