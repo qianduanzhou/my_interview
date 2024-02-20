@@ -57,10 +57,10 @@ function normalFun(name, age) {
 }
 
 //先测试作为构造函数调用
-let bindFun = Person.myBind(obj, '我是参数传进来的name')
-let a = new bindFun('我是参数传进来的age')
-a.say() //我是obj传进来的name
+// let bindFun = Person.myBind(obj, '我是参数传进来的name')
+// let a = new bindFun('我是参数传进来的age')
+// a.say() //我是obj传进来的name
 
 //再测试作为普通函数调用
-// let bindFun = normalFun.myBind(obj, '我是参数传进来的name')
-// bindFun('我是参数传进来的age')
+let bindFun = normalFun.myBind(obj, '我是参数传进来的name')
+bindFun('我是参数传进来的age')

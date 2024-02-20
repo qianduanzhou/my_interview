@@ -15,4 +15,4 @@ let obj = {
 let obj2 = {
     a: 2
 }
-obj.say.apply2(obj2, [3])
+obj.say.apply2(obj2, [3]);
