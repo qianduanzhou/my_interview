@@ -6,21 +6,41 @@
 
 <body>
 	<script>
-function Father(a, b) {
-  this.a = a;
-  this.b = b;
-}
-function Child(a, b, c, d) {
-  Father.call(this, a, b);
-  this.c = c;
-  this.d = d;
-}
-let func = function() {};
-func.prototype = Father.prototype;
-Child.prototype = new func();
-Child.prototype.constructor = Child;
-let child = new Child(1, 2, 3, 4)
-console.log(child)
+var data = [
+  {
+      parentId: 0,
+      id: 1,
+      value: '1'
+  },
+  {
+      parentId: 3,
+      id: 2,
+      value: '2'
+  },
+  {
+      parentId: 0,
+      id: 3,
+      value: '3'
+  },
+  {
+      parentId: 1,
+      id: 4,
+      value: '4'
+  },
+  {
+      parentId: 1,
+      id: 5,
+      value: '5'
+  },
+  {
+      parentId: 2,
+      id: 6,
+      value: '2'
+  },
+];
+
+let node = []
+data.forEach(v => v.parentId ? data.some(item => item.id === v.parentId ? item.children = [...(item.children || []), Object.assign(v, {children: []})] : false) : node.push(v))
 	</script>
 </body>
 
