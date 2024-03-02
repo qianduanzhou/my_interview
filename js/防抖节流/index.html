@@ -11,19 +11,19 @@
     <div style="width: 50px;height: 3000px;"></div>
     <script>
         //防抖
-        // let scrollFunc = debounce(function() {
-        //     console.log('scroll')
-        // }, 200)
-        // document.addEventListener('scroll', scrollFunc)
+        let scrollFunc = debounce(function() {
+            console.log('scroll')
+        }, 200, true)
+        document.addEventListener('scroll', scrollFunc)
 
         //节流
-        let scrollFunc = throttle(function() {
-            console.log('scroll')
-        }, 1000, {
-            leading: true,
-            trailing: true,
-        })
-        document.addEventListener('scroll', scrollFunc)
+        // let scrollFunc = throttle(function() {
+        //     console.log('scroll')
+        // }, 1000, {
+        //     leading: true,
+        //     trailing: true,
+        // })
+        // document.addEventListener('scroll', scrollFunc)
     </script>
 </body>
 </html>
